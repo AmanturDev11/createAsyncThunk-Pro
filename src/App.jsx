@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addBooks } from "./redux/slices/eBookSlice";
+import { addBooks, getEbookThunk } from "./redux/slices/eBookSlice";
 import BookList from "./components/BookList/BookList";
 import BookForm from "./components/BookForm/BookForm";
 import Filter from "./components/Filter/Filter";
@@ -13,18 +13,8 @@ function App() {
 		dispatch(addBooks(newBook));
 	}
 
-	const getEbooks = async () => {
-		try {
-			const response = await fetch(
-				"https://ebook-862d6-default-rtdb.firebaseio.com/ebook.json"
-			);
-			const ebook = await response.json();
-			console.log(ebook);
-		} catch (error) {}
-	};
-
 	useEffect(() => {
-		getEbooks();
+		dispatch(getEbookThunk());
 	}, []);
 
 	return (
