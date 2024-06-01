@@ -68,6 +68,7 @@ export const getEbookThunk = createAsyncThunk(
 					id: key,
 					title: ebook[key].title,
 					author: ebook[key].author,
+					isFavorite: ebook[key].isFavorite,
 				});
 			}
 			return transformedBooks;
