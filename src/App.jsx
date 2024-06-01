@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { addBooks, getEbookThunk } from "./redux/slices/eBookSlice";
+import { addBookRequestThunk,  getEbookThunk } from "./redux/slices/eBookSlice";
 import BookList from "./components/BookList/BookList";
 import BookForm from "./components/BookForm/BookForm";
 import Filter from "./components/Filter/Filter";
@@ -10,7 +10,7 @@ import { useEffect } from "react";
 function App() {
 	const dispatch = useDispatch();
 	function onAddNewBook(newBook) {
-		dispatch(addBooks(newBook));
+		dispatch(addBookRequestThunk(newBook));
 	}
 
 	useEffect(() => {
